@@ -1,9 +1,11 @@
 const express = require("express");
 const app = express();
 const env = require("dotenv");
+const connectDB = require("./db/db");
 
 env.config();
 app.use(express.json());
+connectDB();
 
 app.get("/", (req, res) => {
   res.send("Server is running ");
